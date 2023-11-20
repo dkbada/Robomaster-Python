@@ -197,7 +197,17 @@ def user_defined_path():
             if len(list_marker_info) >= 6:
                 user_defined_compare()
 
-def start():
+if __name__ == '__main__':
+    #initialize & setup
+    ep_robot = robot.Robot()
+    ep_robot.initialize(conn_type="sta")
+
+    ep_vision = ep_robot.vision
+    ep_camera = ep_robot.camera
+    ep_chassis = ep_robot.chassis
+    ep_gripper = ep_robot.gripper
+    ep_arm = ep_robot.robotic_arm
+    
     led_ctrl.set_bottom_led(rm_define.armor_bottom_all, 36, 103, 255, rm_define.effect_always_on)
     robotic_arm_ctrl.moveto(197, -45, wait_for_complete=True)
     gripper_ctrl.open()
