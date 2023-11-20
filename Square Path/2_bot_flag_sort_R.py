@@ -1,3 +1,9 @@
+import cv2
+import robomaster
+from robomaster import robot
+from robomaster import vision
+import time
+
 list_marker_info = RmList()
 list_sort_list = RmList()
 list_sight_list = RmList()
@@ -17,24 +23,6 @@ variable_v2 = 0
 variable_turn = 0
 variable_dist = 0
 def user_defined_normal_arrange():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     variable_dist = 0.67
     chassis_ctrl.move_with_distance(-180,variable_dist)
     time.sleep(2)
@@ -63,24 +51,6 @@ def user_defined_normal_arrange():
     user_defined_angle()
 
 def user_defined_turned_arrange():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     chassis_ctrl.move_with_distance(-180,0.6)
     time.sleep(3)
     chassis_ctrl.stop()
@@ -127,24 +97,6 @@ def user_defined_turned_arrange():
 
     time.sleep(8.5)
 def user_defined_compare():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     time.sleep(0.5)
     variable_count = variable_count + 1
     list_marker_info=RmList(vision_ctrl.get_marker_detection_info())
@@ -158,24 +110,6 @@ def user_defined_compare():
 
             variable_turn = 0
 def user_defined_angle():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     time.sleep(0.1)
     variable_angle = chassis_ctrl.get_position_based_power_on(rm_define.chassis_rotate)
     if variable_angle > -50 and variable_angle < 0:
@@ -203,25 +137,8 @@ def user_defined_angle():
                             time.sleep(1)
     chassis_ctrl.stop()
     time.sleep(0.1)
+    
 def user_defined_get_close():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     time.sleep(0.1)
     list_marker_info=RmList(vision_ctrl.get_marker_detection_info())
     while not list_marker_info[4] >= 0.38:
@@ -233,46 +150,11 @@ def user_defined_get_close():
     user_defined_angle()
 
 def user_defined_center():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     variable_yaw = 96 * (list_marker_info[3] - list_sight_list[1])
     chassis_ctrl.move_with_speed(0,0,variable_yaw)
     time.sleep(1)
+    
 def user_defined_grab():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     time.sleep(0.1)
     list_marker_info=RmList(vision_ctrl.get_marker_detection_info())
     time.sleep(0.1)
@@ -289,25 +171,8 @@ def user_defined_grab():
     robotic_arm_ctrl.moveto(145, 62, wait_for_complete=True)
     time.sleep(0.5)
     chassis_ctrl.set_trans_speed(0.5)
+
 def user_defined_path():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     time.sleep(1)
     list_marker_info=RmList(vision_ctrl.get_marker_detection_info())
     list_sort_list[1] = list_marker_info[2]
@@ -345,24 +210,6 @@ def user_defined_path():
                 user_defined_compare()
 
 def start():
-    global variable_index
-    global variable_yaw
-    global variable_y_coor
-    global variable_angle
-    global variable_trans1
-    global variable_direction
-    global variable_trans2
-    global variable_x_coor
-    global variable_num
-    global variable_count
-    global variable_back
-    global variable_v1
-    global variable_v2
-    global variable_turn
-    global variable_dist
-    global list_marker_info
-    global list_sort_list
-    global list_sight_list
     led_ctrl.set_bottom_led(rm_define.armor_bottom_all, 255, 0, 0, rm_define.effect_always_on)
     robotic_arm_ctrl.moveto(197, -45, wait_for_complete=True)
     gripper_ctrl.open()
