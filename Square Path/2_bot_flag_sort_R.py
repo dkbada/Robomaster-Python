@@ -237,3 +237,5 @@ if __name__ == '__main__':
     variable_angle = chassis_ctrl.get_position_based_power_on(rm_define.chassis_rotate)
     while not variable_count >= 8:
         user_defined_path()
+
+    ep_robot.close()
