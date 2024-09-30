@@ -302,7 +302,6 @@ if __name__ == '__main__':
     robomaster1.markerDetect = True
     robomaster2.markerDetect = True
 
-    #robomaster1.start_CamStream(startRender = True, x0 = 50, y0 = 50)
     robomaster1.start_CamStream(startRender = True, x0 = 50, y0 = 50)
     robomaster2.start_CamStream(startRender = True, x0 = 700, y0 = 50)
     
