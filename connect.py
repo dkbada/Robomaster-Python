@@ -17,7 +17,6 @@ if __name__ == '__main__':
     img.show()  # This will display the QR code on-screen
                 # Press the "Connect" button besides the "Wi-Fi or Router" slider
                 # Place the QR code in front of the camera and wait for connection
-                # There will be a voice feedback
     if helper.wait_for_connection():
         print("Connected!")
     else:
