@@ -7,4 +7,4 @@ The two robots run under the same code -- this is done by adding the computing d
 
 
 Demo Video:
-[[https://1drv.ms/v/s!Avh96c782dIJg6N6PXcCpusTM4qDig?e=ILTZb2](url)](https://1drv.ms/v/s!Avh96c782dIJg6N6PXcCpusTM4qDig?e=VBmxYV)
+[https://1drv.ms/v/s!Avh96c782dIJg6N6PXcCpusTM4qDig?e=VBmxYV](url)
